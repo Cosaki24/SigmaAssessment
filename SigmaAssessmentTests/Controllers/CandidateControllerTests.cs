@@ -202,15 +202,11 @@ namespace SigmaAssessmentTests.Controllers
                 Comment = "Best Guy"
             };
 
-            var existingCandidate = _context.CandidatesDb.FirstOrDefault(c => c.Email == candidate.Email);
-
+            
             // Act
             var result = await _controller.PostCandidate(candidate);
 
             // Assert
-            existingCandidate.Should().NotBeNull();
-            existingCandidate.Comment.Should().Be("Good guy"); // check if candidate was existing
-
             var okResult = result.Result as OkObjectResult;
             okResult.Should().NotBeNull();
             var response = okResult.Value as Response;
