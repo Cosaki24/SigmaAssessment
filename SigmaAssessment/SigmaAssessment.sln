@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaAssessment", "SigmaAssessment.csproj", "{EC9BBE1E-8F9D-4CA9-88EE-FD53D9EC8669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaAssessmentTests", "..\SigmaAssessmentTests\SigmaAssessmentTests.csproj", "{E707C010-3274-422E-B565-747385FBF7A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaAssessment.Tests", "..\SigmaAssessmentTests\SigmaAssessment.Tests.csproj", "{E707C010-3274-422E-B565-747385FBF7A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,10 +11,10 @@ namespace SigmaAssessment.Models
     public class Candidate
     {
         [Required(ErrorMessage = "First name is required")]
-        public string Firstname { get; set; }
+        public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last name is required")]
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
 
         [Required(ErrorMessage = "Phone number is required")]
         [StringLength(13, MinimumLength = 13)]
