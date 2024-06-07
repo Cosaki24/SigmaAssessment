@@ -18,7 +18,7 @@ namespace SigmaAssessment.Models
 
         [Required(ErrorMessage = "Phone number is required")]
         [StringLength(13, MinimumLength = 13)]
-        [RegularExpression(@"^\+255[67]\d{2}\d{3}\{3}$", ErrorMessage = "Invalid phone number format.")]
+        [RegularExpression(@"^\+255[67]\d{2}\d{3}\d{3}$", ErrorMessage = "Invalid phone number format.")]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
@@ -43,6 +43,11 @@ namespace SigmaAssessment.Models
 
     public class CandidateSchemaFilter : ISchemaFilter 
     {
+        /// <summary>
+        /// Provides an example for the Candidate Model in the Swagger UI
+        /// </summary>
+        /// <param name="schema"></param>
+        /// <param name="ctx"></param>
         public void Apply(OpenApiSchema schema, SchemaFilterContext ctx)
         {
             schema.Example = new OpenApiObject

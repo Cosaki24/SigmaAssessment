@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using SigmaAssessment.Helpers;
 using SigmaAssessment.Models;
 
@@ -59,7 +52,7 @@ namespace SigmaAssessment.Controllers
                     return BadRequest(errorResponse);
                 }
 
-                if(CandidateExists(candidate.Email))  // if candidate email exists, update the candidate
+                if (CandidateExists(candidate.Email))  // if candidate email exists, update the candidate
                 {
                     // update existing candidate
                     _context.CandidatesDb.Update(candidate);
@@ -69,7 +62,7 @@ namespace SigmaAssessment.Controllers
                     response.StatusCode = StatusCodes.Status200OK;
                     response.Message = "Candidate updated successfully.";
 
-                    _logger.LogInformation("Candidate {0} with email {1} updated successfully!", 
+                    _logger.LogInformation("Candidate {0} with email {1} updated successfully!",
                         candidate.FirstName + " " + candidate.LastName, candidate.Email);
 
                     return Ok(response);
@@ -84,20 +77,21 @@ namespace SigmaAssessment.Controllers
                     response.StatusCode = StatusCodes.Status200OK;
                     response.Message = "New candidate created successfully.";
 
-                    _logger.LogInformation("New candidate {0} with email {1} created successfully!", 
+                    _logger.LogInformation("New candidate {0} with email {1} created successfully!",
                         candidate.FirstName + " " + candidate.LastName, candidate.Email);
 
                     return Ok(response);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 response.StatusCode = StatusCodes.Status500InternalServerError;
                 response.Message = "An error occurred while processing your request";
 
                 _logger.LogError("Error creating or updating candidate: " + ex.Message);
                 return base.StatusCode(StatusCodes.Status500InternalServerError, response);
             }
-                
+
         }
 
         /// <summary>

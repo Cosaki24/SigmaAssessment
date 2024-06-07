@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using SigmaAssessment.Models;
-using Microsoft.Extensions.Logging;
-using NUnit.Framework;
-using FakeItEasy;
-using Microsoft.EntityFrameworkCore;
-using SigmaAssessment.Controllers;
+﻿using FakeItEasy;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using SigmaAssessment.Controllers;
 using SigmaAssessment.Helpers;
+using SigmaAssessment.Models;
 using System.Text.RegularExpressions;
 
 namespace SigmaAssessmentTests.Controllers
@@ -202,7 +196,7 @@ namespace SigmaAssessmentTests.Controllers
                 Comment = "Best Guy"
             };
 
-            
+
             // Act
             var result = await _controller.PostCandidate(candidate);
 
@@ -230,7 +224,7 @@ namespace SigmaAssessmentTests.Controllers
             {
                 FirstName = "John",
                 LastName = "David",
-                PhoneNumber = "+222512345678", // invalid country code in phone number
+                PhoneNumber = "+267712345678",  // invalid country code in phone number
                 Email = "jdavidexample.com",    // invalid email format
                 AvailableStartTime = "0800",    // invalid time format
                 AvailableEndTime = "30:00",     // exceeding 24 hrs
@@ -239,8 +233,8 @@ namespace SigmaAssessmentTests.Controllers
                 Comment = "Good guy"
             };
 
-            string phoneRegex = @"^\\+255[67]\\d{2}\\d{3}\\d{3}$";
-            string emailRegex = @"^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
+            string phoneRegex = @"^\+255[67]\d{2}\d{3}\d{3}$";
+            string emailRegex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
             string timeRegex = @"^(?:[01]\d|2[0-3]):[0-5]\d$";
             string linkedinRegex = @"^https:\/\/(www\.)?linkedin\.com\/.*$";
             string githubRegex = @"^https:\/\/(www\.)?github\.com\/.*$";

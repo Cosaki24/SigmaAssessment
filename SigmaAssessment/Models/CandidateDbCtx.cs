@@ -13,7 +13,7 @@ namespace SigmaAssessment.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Candidate>().HasKey(c => c.Email).HasName("PK_Candidate_Email");
+            modelBuilder.Entity<Candidate>().HasKey(c => c.Email).HasName("PK_Candidate_Email"); // set Email as the primary key
         }
     }
 }
