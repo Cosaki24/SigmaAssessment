@@ -11,9 +11,9 @@ namespace SigmaAssessment.Models
 
         public DbSet<Candidate> CandidatesDb { get; set; } = null!;
 
-        //protected override void onModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Candidate>().HasKey(c => c.Email).HasName("PK_Candidate_Email");
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Candidate>().HasKey(c => c.Email).HasName("PK_Candidate_Email");
+        }
     }
 }

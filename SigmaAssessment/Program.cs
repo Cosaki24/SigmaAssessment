@@ -1,11 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
+using SigmaAssessment.Models;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var dbConn = builder.Configuration.GetConnectionString("CandidatesDb");
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<CandidateDbCtx>(options =>
+{
+    options.UseSqlServer(dbConn, options => options.EnableRetryOnFailure());
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(
