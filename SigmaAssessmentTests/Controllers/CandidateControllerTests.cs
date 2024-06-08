@@ -110,7 +110,7 @@ namespace SigmaAssessmentTests.Controllers
             {
                 FirstName = "",
                 LastName = "",
-                PhoneNumber = "",
+                PhoneNumber = null,
                 Email = "",
                 AvailableStartTime = "",
                 AvailableEndTime = "",

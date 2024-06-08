@@ -18,7 +18,7 @@ namespace SigmaAssessment.Models
 
         [StringLength(13, MinimumLength = 13)]
         [RegularExpression(@"^\+255[67]\d{2}\d{3}\d{3}$", ErrorMessage = "Invalid phone number format.")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email format")]
