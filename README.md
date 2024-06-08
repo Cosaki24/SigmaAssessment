@@ -15,6 +15,7 @@ It has one endpoint to add a new candidate or update if the candidate already ex
 - Swagger Documentation for Development environment
 
 ## Things to be implemented
+- Separate create and update candidate feature, each into its own endpoint to avoid confusion
 - Addition of more endpoints to return candidate information after querying (GetAllCandidates, GetCandidateByEmail, DeleteCandidate)
 - Api authentication
 
