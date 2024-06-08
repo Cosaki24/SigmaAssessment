@@ -121,7 +121,6 @@ namespace SigmaAssessmentTests.Controllers
 
             _controller.ModelState.AddModelError("FirstName", "First Name is required");
             _controller.ModelState.AddModelError("LastName", "Last Name is required");
-            _controller.ModelState.AddModelError("PhoneNumber", "Phone number is required");
             _controller.ModelState.AddModelError("Email", "Email is required");
             _controller.ModelState.AddModelError("Comment", "The comment field is required");
 
@@ -137,7 +136,7 @@ namespace SigmaAssessmentTests.Controllers
             response.Message.Should().NotBeNullOrEmpty();
             response.Message.Should().Be("Invalid candidate information");
             response.Errors.Should().NotBeNull();
-            response.Errors.Should().HaveCount(5);
+            response.Errors.Should().HaveCount(4);
         }
 
         [Test]

@@ -16,7 +16,6 @@ namespace SigmaAssessment.Models
         [Required(ErrorMessage = "Last name is required")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Phone number is required")]
         [StringLength(13, MinimumLength = 13)]
         [RegularExpression(@"^\+255[67]\d{2}\d{3}\d{3}$", ErrorMessage = "Invalid phone number format.")]
         public string PhoneNumber { get; set; }
